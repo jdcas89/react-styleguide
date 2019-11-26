@@ -3,7 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { Typography } from './Typography';
 import styled from 'styled-components';
 import { colors } from './colors';
-import { breakpoints, space } from './theme';
+import { breakpoints } from './theme';
+import { space } from './space';
 
 const { H1, H2, H3, H4, H5, LargeLead, Link, Paragraph, SmallLead, SmallParagraph } = Typography;
 
@@ -40,13 +41,13 @@ storiesOf('Styleguide ', module)
           <SmallParagraph>Color</SmallParagraph>
         </div>
       </GridContainer>
-      {/*{Object.keys(colors).map((key: string) => (*/}
-      {/*  <GridContainer key={key}>*/}
-      {/*    <SmallParagraph>{key}</SmallParagraph>*/}
-      {/*    <SmallParagraph>{colors[key]}</SmallParagraph>*/}
-      {/*    <ColorCircle color={colors[key]} />*/}
-      {/*  </GridContainer>*/}
-      {/*))}*/}
+      {Object.entries(colors).map(obj => (
+        <GridContainer key={obj[0]}>
+          <SmallParagraph>{obj[0]}</SmallParagraph>
+          <SmallParagraph>{obj[1]}</SmallParagraph>
+          <ColorCircle color={obj[1]} />
+        </GridContainer>
+      ))}
       <Divider />
       <H2>Breakpoints</H2>
       <Paragraph>These are the responsive breakpoints being used</Paragraph>
@@ -61,12 +62,12 @@ storiesOf('Styleguide ', module)
       <Divider />
       <H2>Space</H2>
       <FlexContainer>
-        {space.map((key: string, index: number) => (
-          <div key={key}>
+        {Object.entries(space).map(obj => (
+          <div key={obj[0]}>
             <SmallParagraph m={2}>
-              <strong>{index}</strong>
+              <strong>{obj[1]}px</strong>
             </SmallParagraph>
-            <SmallParagraph m={2}>{key}</SmallParagraph>
+            <SmallParagraph m={2}>{obj[0]}</SmallParagraph>
           </div>
         ))}
       </FlexContainer>
@@ -76,7 +77,7 @@ storiesOf('Styleguide ', module)
 const Divider = styled.div`
   border: 1px solid #00000022;
   width: 100%;
-  margin: ${({ theme }) => theme.space[2]};
+  margin: ${({ theme }) => theme.space.M}px;
 `;
 
 const ColorCircle = styled.div<{ color: string }>`
@@ -89,7 +90,7 @@ const ColorCircle = styled.div<{ color: string }>`
 const GridContainer = styled.div`
   display: grid;
   grid-template-columns: 150px 150px 150px;
-  margin: ${({ theme }) => theme.space[2]};
+  margin: ${({ theme }) => theme.space.M}px;
 `;
 
 const FlexContainer = styled.div`

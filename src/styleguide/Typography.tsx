@@ -5,10 +5,10 @@ import { typographyStyles } from './typographyStyles';
 
 type AnchorProps = StyledSystemProps & Pick<LinkProps, 'to'> & { onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void };
 
-const Link: React.FC<AnchorProps> = ({ to, onClick, ...props }) => (
+const Link: React.FC<AnchorProps> = ({ to, onClick, children, ...props }) => (
   <RouterLink to={to} onClick={onClick}>
     <DynamicStyledSystemComponent {...typographyStyles.Link} {...props}>
-      {props.children}
+      {children}
     </DynamicStyledSystemComponent>
   </RouterLink>
 );
