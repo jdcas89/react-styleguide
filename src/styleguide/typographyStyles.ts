@@ -64,13 +64,13 @@ export const typographyStyles: TypographyStyles = {
     as: 'p',
   },
   Paragraph: {
-    fontSize: [16, 16, 16, 16],
+    fontSize: [14, 15, 15, 16],
     fontWeight: 300,
     fontFamily: fontFamilies.body,
     as: 'p',
   },
   SmallParagraph: {
-    fontSize: [14, 14, 14, 15],
+    fontSize: [13, 14, 14, 15],
     fontWeight: 300,
     fontFamily: fontFamilies.body,
     as: 'p',
@@ -78,7 +78,7 @@ export const typographyStyles: TypographyStyles = {
   Link: {
     fontWeight: 700,
     color: colors.primary,
-    fontSize: [10, 11, 12, 14],
+    fontSize: [14, 15, 15, 16],
     fontFamily: fontFamilies.body,
   },
 };
