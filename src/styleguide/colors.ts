@@ -18,8 +18,8 @@ export const colors: ThemeColors = {
   success: '#52c41a',
   warning: '#faad14',
   error: '#e84118',
-  heading: '#000',
+  heading: '#423EA2',
   text: '#000',
   disabled: '#f5222d',
-  border: '#000',
+  border: '#423EA2',
 };
